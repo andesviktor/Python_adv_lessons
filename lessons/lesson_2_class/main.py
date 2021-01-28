@@ -99,8 +99,11 @@ from abc import ABCMeta, abstractmethod
 #         self.name = name
 #         self.age = age
 #
-#     # def __gt__(self, other):  #Note: Сравнения
+#     # def __gt__(self, other):  #Note: Сравнения в большую сторону
 #     #     return self.age > other.age
+
+# def __lt__(self, other):  #Note: Сравнения в меньшую сторону
+#     #     return self.age < other.age
 #
 # r_1 = Reader('Ivan', 20)
 # r_2 = Reader('Petr', 15)
