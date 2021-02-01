@@ -19,7 +19,7 @@ def main():
             print('ВНИМАНИЕ: не целое числовое значение или вообще не числовое значение. Повторите')
         else:
             break
-    print(start_a, finish_a, start_b, finish_b, start_c, finish_c)
+    print() #start_a, finish_a, start_b, finish_b, start_c, finish_c
     list_a = sorted([start_a, finish_a])
     list_b = sorted([start_b, finish_b])
     list_c = sorted([start_c, finish_c])
@@ -31,7 +31,7 @@ def main():
                     try:
                         x = (-b + sqrt(d)) / (2 * a)
                     except ArithmeticError:
-                        print('Происходит деление на ноль')
+                        print(a, b, c, 'No:', 'Происходит деление на ноль')
                         continue
                     print(a, b, c, 'Yes', x)
                 elif d < 0:
@@ -41,9 +41,9 @@ def main():
                         x1 = (-b + sqrt(d)) / (2 * a)
                         x2 = (-b - sqrt(d)) / (2 * a)
                     except ArithmeticError:
-                        print('Происходит деление на ноль')
+                        print(a, b, c, 'No:', 'Происходит деление на ноль')
                         continue
-                    print(a, b, c, 'Yes', x1, x2,)
+                    print(a, b, c, 'Yes', x1, x2, )
 
 
 if __name__ == "__main__":
