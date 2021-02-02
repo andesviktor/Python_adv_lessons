@@ -109,6 +109,33 @@ from abc import ABCMeta, abstractmethod
 # r_2 = Reader('Petr', 15)
 # print(r_1 > r_2)
 
+# class User:
+#     def __init__(self, name, surname, age):
+#         self.name = name
+#         self.surname = surname
+#         self.age = age
+#
+#     def __getattr__(self, item):
+#         print('THIS IS GETATTR')
+#         return None
+#
+#     def __setattr__(self, key, value):
+#         if key == 'age' and value == 0:
+#             raise Exception('Error')
+#         self.__dict__[key] = value
+#
+#     def __getattribute__(self, item):
+#         return object.__getattribute__(self, item)
+#
+# user_1 = User('Ivan', 'Petrov', 30)
+#user_1.age = 0
+# salary = user_1.salary
+#
+# if salary is None:
+#     print(f'{user_1.name} — безработный')
+# else:
+#     pass
+
 # Note: Пример правильного комментирования
 # def add(x1:int,x2:int) -> int:
 #     """
@@ -119,3 +146,27 @@ from abc import ABCMeta, abstractmethod
 #     """
 #     return x1+x2
 # add()
+
+# Note: Область видимости переменной
+# a = 5
+# def test():
+#     print(a)
+# test()
+# print(a)
+import copy
+
+array_1 = [1,2,3,4,[5,6,7]]
+#Note: Поверхностное копирование
+array_2 = copy.copy(array_1)
+print(array_1)
+print(array_2)
+array_1[0] = 5
+print()
+print(array_1)
+print(array_2)
+#Note: глубокое копирование
+array_2 = copy.deepcopy(array_1)
+array_1[4].append(10)
+print()
+print(array_1)
+print(array_2)
