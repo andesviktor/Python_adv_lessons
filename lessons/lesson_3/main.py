@@ -96,29 +96,124 @@
 
 # Note: Метакласс
 
-class UpAttrClass(type):
-    def __new__(cls, class_name, class_parent, class_attrs):
-        up_attr = {}
-        for name, value in class_attrs.items():
-            if not name.startswith('__'):
-                up_attr[name.upper()] = value
+# class UpAttrClass(type):
+#     def __new__(cls, class_name, class_parent, class_attrs):
+#         up_attr = {}
+#         for name, value in class_attrs.items():
+#             if not name.startswith('__'):
+#                 up_attr[name.upper()] = value
+#             else:
+#                 up_attr[name] = value
+#
+#         up_attr['print_type'] = cls.print_type
+#
+#         # return type.__new__(cls, class_name,class_parent, up_attr)
+#         return super(UpAttrClass, cls).__new__(cls, class_name, class_parent, up_attr)
+#
+#     def print_type(self):
+#         print(type(self))
+#
+#
+# class User(metaclass=UpAttrClass):
+#     name = 'Ivan'
+#     age = 20
+#
+#
+# user_1 = User()
+# print(dir(user_1))
+# user_1.print_type()
+
+# Note: Декораторы класса
+# class Functor:
+#     def __call__(selfs,a,b):
+#         print (a + b)
+# f = Functor()
+#
+# f(1,2)
+
+# class Functor:
+#     def __init__(self,N):
+#         self.n = N
+#     def call1(self,func,*args,**kwargs):
+#         for i in range(3):
+#             func(*args,**kwargs)
+#     def call2(self, func,*args,**kwargs):
+#         func(*args, **kwargs)
+#     def test(self):
+#         print('This is test...')
+#     def __call__(self, func):
+#         def helper(*args,**kwargs):
+#             if self.n == 1:
+#                 return self.call1(func,*args,**kwargs)
+#             elif self.n == 2:
+#                 return self.call2(func,*args,**kwargs)
+#         return helper
+# @Functor(1)
+# def foo():
+#     print('Hello')
+# @Functor(2)
+# def boo():
+#     print('Bye')
+# foo()
+# boo()
+
+from time import time, sleep
+
+
+def benchmark(method):
+    def helper(*args, **kwargs):
+        time_start = time()
+        res = method(*args, **kwargs)
+        print(f'Time process:{time() - time_start} sec.')
+        return res
+
+    return helper()
+
+
+def decor_benchmark_methods(cls):
+    class NewClass:
+        def __init__(self, *args, **kwargs):
+            self.__obj = cls(*args, **kwargs)
+
+        def __getattribute__(self, item):
+            # Проверяем чей объект. Если наш, просто возвращаем его
+            # если декорированного класа - модифицируем
+            try:
+                is_my_attr = super(NewClass, self).__getattribute__(item)
+            except AttributeError:
+                pass
             else:
-                up_attr[name] = value
+                return is_my_attr
 
-        up_attr['print_type'] = cls.print_type
+            # получаем атрибут
+            attr = self.__obj.__getattribute__(item)
 
-        # return type.__new__(cls, class_name,class_parent, up_attr)
-        return super(UpAttrClass, cls).__new__(cls, class_name, class_parent, up_attr)
+            # полученный атрибут - это поле или метод?
+            if callable(attr):
+                # если метод - модифицируем
+                return benchmark(attr)
+            else:
+                # если поле - возвращаем
+                return attr
 
-    def print_type(self):
-        print(type(self))
+    return NewClass
 
 
-class User(metaclass=UpAttrClass):
-    name = 'Ivan'
-    age = 20
+class Test:
+    def method_1(self):
+        print('Start method #1')
+        sleep(1)
+        print('Finished method #1')
+
+    def method_2(self):
+        print('Start method #2')
+        sleep(1)
+        print('Finished method #2')
 
 
-user_1 = User()
-print(dir(user_1))
-user_1.print_type()
+Test = decor_benchmark_methods(Test)
+
+t = Test()
+t.method_1()
+t.method_2()
+print(type(t))
