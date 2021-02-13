@@ -1,5 +1,5 @@
 class Reader:
-    def __init__(self, person_id, person_name, person_surname):
+    def __init__(self, person_id: int, person_name: str, person_surname: str):
         """
 
         :param person_id: ID читателя
@@ -12,7 +12,7 @@ class Reader:
 
     def print_full_name(self):
         """
-
-        :return: Имя и Фамилия читателя
+        Анкета пользователя
+        :return: ID, имя и фамилия читателя
         """
-        return print(f'{self.person_name} {self.person_surname}')
+        return print(f'{self.person_id} : {self.person_name} {self.person_surname}')
