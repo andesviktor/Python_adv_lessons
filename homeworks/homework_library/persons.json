@@ -1,0 +1,19 @@
+[
+  {
+    "id":0,
+    "name":"Viktor",
+    "surname":"Andes",
+    "owned_books":[
+      {
+        "id":2,
+        "name":"The Remains of the Day",
+        "author":"Kazuo Ishiguro"
+      },
+      {
+        "id":1,
+        "name":"The Great Gatsby",
+        "author":"Francis Scott Fitzgerald"
+      }
+    ]
+  }
+]
