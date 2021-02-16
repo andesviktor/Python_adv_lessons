@@ -16,7 +16,8 @@ class Library:
     def give_book_to_user(self, reader: Reader, book: Book):
         self.readers_list.append(reader)
         self.readers_list.append(book)
-        print(f'Book \'{book.name}\' by {book.author} was give to {reader.name} {reader.surname}')
+        print(f'Book \'{book.name}\' by {book.author} was given by {reader.name} {reader.surname}')
 
-    #def take_book_from_user(self,reader:Reader,book:Book):
-
+    def take_book_from_user(self,reader:Reader,book:Book):
+        self.books_list.append(book)
+        print(f' {reader.name} {reader.surname} give to library \'{book.name}\' by {book.author}')
