@@ -1,41 +1,35 @@
 [
   {
-    "id": 0,
     "name": "Tom Jones",
     "author": "Henry Fielding",
     "year": 1994,
     "available": true
   },
   {
-    "id": 1,
     "name": "The Great Gatsby",
     "author": "Francis Scott Fitzgerald",
     "year": 1925,
     "available": false
   },
   {
-    "id": 6,
     "name": "The Remains of the Day",
     "author": "Kazuo Ishiguro",
     "year": 1989,
     "available": false
   },
   {
-    "id": 3,
     "name": "It",
     "author": "Stephen King",
     "year": 1986,
     "available": true
   },
   {
-    "id": 4,
     "name": "1984",
     "author": "George Orwell",
     "year": 1949,
     "available": true
   },
   {
-    "id": 5,
     "name": "The Last Wish",
     "author": "Andrzej Sapkowski",
     "year": 2007,
