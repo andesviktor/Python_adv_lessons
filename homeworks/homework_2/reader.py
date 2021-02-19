@@ -1,3 +1,8 @@
+"""
+3. Класс читателя
+    - ???
+"""
+
 class Reader:
     def __init__(self, name : str, surname: str, age: int):
         """

@@ -1,5 +1,5 @@
-from reader import Reader
-from book import Book
+from utils.reader import Reader
+from utils.book import Book
 from library import Library
 import time
 
