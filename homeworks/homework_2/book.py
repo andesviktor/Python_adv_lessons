@@ -1,17 +1,16 @@
 class Book:
     """ Класс книги """
-    def __init__(self, id: int, name: str, author: str, year: int):
+
+    def __init__(self, name: str, author: str, year: int, available: bool = True, reader: str = "None"):
         """
-        Создание книги
-        :param id: ID книги
-        :param name: Название книги
-        :param author: Автор книги
-        :param year: Год выпуска
+        Create new book
+        :param name: Book Name
+        :param author: Books' Author
+        :param year: Year of the book
+        :param available: Is this book available. Default - True
         """
-        self.id = id
         self.name = name
         self.author = author
         self.year = year
-
-    def remove_book_to_library(self, id: int, name: str, author: str, year: int):
-        print(f'Book removed: {id} : \'{name}\' by {author} , {year}')
+        self.available = available
+        self.reader = reader
