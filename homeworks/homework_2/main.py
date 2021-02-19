@@ -5,6 +5,7 @@ import time
 
 
 def main():
+    lib = Library()
     user1 = Reader("Djinn", "Co", 25)
     user2 = Reader("Artem", "KFC", 48)
     user3 = Reader("Suga", "Rogue", 35)
@@ -12,7 +13,6 @@ def main():
     book1 = Book("Ubik", "Philip k. Dick", 1969)
     book2 = Book("The Last Wish", "Andrzej Sapkowski", 2007)
     book3 = Book("It", "Stephen King", 1986)
-    lib = Library()
     print(' ')
     lib.add_book_to_lib(book1)
     lib.add_book_to_lib(book2)
