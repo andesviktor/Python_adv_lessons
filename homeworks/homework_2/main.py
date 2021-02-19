@@ -18,6 +18,10 @@ def main():
     lib.add_book_to_lib(book2)
     lib.add_book_to_lib(book3)
     print(' ')
+    lib.add_user_to_readerslist(user1)
+    lib.add_user_to_readerslist(user2)
+    lib.add_user_to_readerslist(user3)
+    print(' ')
 
     time.sleep(3)
     lib.give_book_to_user(user1, book1)
@@ -27,6 +31,8 @@ def main():
     lib.show_books(available=True)
     print(' ')
     lib.show_books(available=False)
+    print(' ')
+    lib.sort_books('year')
 
 
 if __name__ == "__main__":

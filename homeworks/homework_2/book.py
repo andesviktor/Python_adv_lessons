@@ -14,3 +14,6 @@ class Book:
         self.year = year
         self.available = available
         self.reader = reader
+
+    #def __repr__(self):
+    #    return repr((self.name,self.author,self.year,self.available,self.reader))
