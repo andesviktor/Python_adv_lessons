@@ -1,0 +1,9 @@
+setup.py
+utils/__init__.py
+utils/book.py
+utils/reader.py
+vandes_library_package.egg-info/PKG-INFO
+vandes_library_package.egg-info/SOURCES.txt
+vandes_library_package.egg-info/dependency_links.txt
+vandes_library_package.egg-info/requires.txt
+vandes_library_package.egg-info/top_level.txt
