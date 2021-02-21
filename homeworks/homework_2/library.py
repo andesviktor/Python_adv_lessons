@@ -18,8 +18,8 @@
         - Отсортировать список книг по названию, автору, году издания (lambda будет плюсом)
 """
 
-from utils.book import Book
-from utils.reader import Reader
+from book import Book
+from reader import Reader
 
 
 class Library:
@@ -54,7 +54,7 @@ class Library:
         self.readers_list.append(reader)
         print(f'User has been registered: {reader.name} {reader.surname}, {reader.age} years old')
 
-    def remove_user_from_readerlist(self,reader:Reader):
+    def remove_user_from_readerlist(self, reader: Reader):
         self.readers_list.remove(reader)
         print(f'User has been removed: {reader.name} {reader.surname}, {reader.age} years old')
 
@@ -98,7 +98,7 @@ class Library:
                 else:
                     print(f"\'{books.name}\' by {books.author} , {books.year} — WAS GIVEN TO {books.reader}")
 
-    def sort_books(self, findkey = 'year'):
+    def sort_books(self, findkey='year'):
         """
         Sort books by 'name','author' or 'year'
         :param findkey: 'name','author' or 'year'(default)

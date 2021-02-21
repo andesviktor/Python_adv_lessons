@@ -3,8 +3,9 @@
     - ???
 """
 
+
 class Reader:
-    def __init__(self, name : str, surname: str, age: int):
+    def __init__(self, name: str, surname: str, age: int):
         """
 
         :param name: Имя читателя
@@ -14,6 +15,3 @@ class Reader:
         self.name = name
         self.surname = surname
         self.age = age
-
-
-
